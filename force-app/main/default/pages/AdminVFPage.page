@@ -1,0 +1,113 @@
+<apex:page showHeader="false" sidebar="false" standardStylesheets="true" standardController="FeedBack_Response__c" extensions="responseApex">
+    <apex:pageMessages ></apex:pageMessages>   
+    <div class="color1">      
+        <apex:outputLabel >
+            <img src="{!$Resource.Logo}" width="150" height="100" />   
+        </apex:outputLabel>
+        <h1>
+            Scrutiny for Government Officials
+        </h1>  
+    </div>
+    <style type="text/css">
+        .color1{
+        background-color:#1A1A56;         
+        }
+        .color2{
+        background-color:#FF4500;
+        padding: 5px 24px; 
+        cursor: pointer;
+        }
+        
+      <!--  .btn-group button {
+background-color: #FF8000; 
+border: 1px solid green; 
+color: black; 
+padding: 10px 24px; 
+cursor: pointer; 
+width: 30%; 
+display: block; 
+}    
+.btn-group button:hover {
+background-color: #0080FF;
+}-->
+        
+        h1{
+        font-family:"Georgia";
+        font-size:25pt;
+        color:Green;
+        text-align: center;
+        <!-- vertical-align: left;
+top: 50%;-->
+        line-height: 90px;
+        position: relative;
+        float: left;
+        left: 50%;               
+        } 
+    </style>
+    
+    <apex:form >
+        <apex:pageBlock >
+                <!--div class="btn-group">
+<button>Give Feedback </button>
+<button>About us</button>
+<button>Contact</button>
+</div-->           
+            <div class="color2">            
+                <center> <apex:commandButton action="{!method1}" value="Home" style="width:25%; background:green;" />
+                         <apex:commandButton action="{!method}" value="Give Feedback" style="width:25%; background:green;" />
+                </center>                                
+            </div>             
+        </apex:pageBlock>
+        
+ <apex:pageBlock title="About Us" rendered="{!flag1}" > 
+     <p>
+         hi
+     </p>
+ </apex:pageBlock>       
+        <apex:pageBlock title="Feedback Form" rendered="{!flag}" >
+            <apex:pageBlockSection title="User Details">         
+                <apex:inputField required="true" value="{!FeedBack_Response__c.Name}"/>
+                <apex:inputField value="{!FeedBack_Response__c.Mobile_Number__c}"/>
+                <apex:inputField required="true" value="{!FeedBack_Response__c.Email__c}"/> <br/>            
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Officer Details">
+                <apex:inputField required="true" value="{!FeedBack_Response__c.Department__c}"/>
+                <apex:inputField required="true" value="{!FeedBack_Response__c.Officer_Name__c}"/>
+                <apex:inputField required="true" value="{!FeedBack_Response__c.Date__c}"/>
+                <apex:inputField required="true" value="{!FeedBack_Response__c.Office_Address__c}"/>
+                <apex:pageBlockSectionItem >
+                    <apex:outputText value="Percentage"/>
+                    <apex:outputText />
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection> 
+            
+            <apex:pageBlockSection title="Existing Problems" >
+                <apex:inputField value="{!FeedBack_Response__c.Q1__c}"/>
+                <apex:inputField value="{!FeedBack_Response__c.A1__c}"/>
+                <apex:inputField value="{!FeedBack_Response__c.Q2__c}"/>
+                <apex:inputField value="{!FeedBack_Response__c.A2__c}"/>
+                <apex:inputField value="{!FeedBack_Response__c.Q3__c}"/>
+                <apex:inputField value="{!FeedBack_Response__c.A3__c}"/>
+                <apex:inputField value="{!FeedBack_Response__c.Q4__c}"/>
+                <apex:inputField value="{!FeedBack_Response__c.A4__c}"/>
+                <apex:inputField value="{!FeedBack_Response__c.Q5__c}"/>
+                <apex:inputField value="{!FeedBack_Response__c.A5__c}"/>
+                <apex:inputField value="{!FeedBack_Response__c.Q6__c}"/>
+                <apex:inputField value="{!FeedBack_Response__c.A6__c}"/>  
+                <apex:inputField value="{!FeedBack_Response__c.Q7__c}"/>                            
+                <apex:inputField value="{!FeedBack_Response__c.A7__c}"/>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Custom Questions">
+                <apex:inputField value="{!FeedBack_Response__c.Description__c}"/>
+            </apex:pageBlockSection> 
+            
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton action="{!save}" value="Save" onclick="ThankYou very much for your feedback"/>
+            </apex:pageBlockButtons>
+            
+        </apex:pageBlock>   
+        
+    </apex:form>     
+</apex:page>
